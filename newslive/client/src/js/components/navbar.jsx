@@ -3,14 +3,19 @@ var {Link} = require('react-router');
 var NavBar = React.createClass({
   render: function(){
     return(
-      <div className="container-navbar">
+      <div>
+      <nav className="navbar navbar-default">
+      <div className="container-fluid">
       <ul className="nav navbar-nav">
-      <li><Link to="/home">Home</Link></li>
-      <li><Link to="/saveView">Saved Repos</Link></li>
+      <li><Link to="/Home">Home</Link></li>
+      <li><Link to="/favNews">View Favourites</Link></li>
+      <li><Link to="/About">About Us</Link></li>
+      <li><Link to="/Contact">Contact Us</Link></li>
       </ul>
+      </div>
+      </nav>
       </div>
     );
   }
 });
-
 module.exports=NavBar;

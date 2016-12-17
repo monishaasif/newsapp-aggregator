@@ -1,7 +1,6 @@
   var express = require('express');
   var router = express.Router();
-  var newslive = require('../models/login');
-    var newslives = require('../models/schema');
+  var newslives = require('../models/schema');
   /* GET home page. */
   /local/
   router.get('/', function(req, res, next) {
@@ -12,15 +11,15 @@
    res.send("Username:"+req.body.uname+"<BR>"+"Password:"+req.body.pass);
   })
   //localhost:8095/news/adddatatodb
-  router.post("/adddatatodb",function(req ,res ,next) {
+  router.post("/adddatatodb",function(req ,res) {
     if(req.body){
-      var newssave = new newslive();
-      newssave.Author = req.body.Author;
-      newssave.Title = req.body.Title;
-      newssave.Description = req.body.Description;
+      var newssave = new newslives();
+      newssave.author = req.body.author;
+      newssave.title = req.body.title;
+      newssave.description = req.body.description;
       newssave.url = req.body.url;
       newssave.urlToImage = req.body.urlToImage;
-      newssave.PublishedAt = req.body.PublishedAt;
+      newssave.publishedAt = req.body.publishedAt;
 
     newssave.save(function(err){
       if(err) {
@@ -30,9 +29,7 @@
        res.send("Saved the news headlines in the mongo" );
    }
  });
- }
-   else{
-     res.send("No headline found for saving the headline");
+
   }
   });
 
@@ -72,7 +69,7 @@
     });
   /*localhost:8095/news/view*/
 
-router.get('/view', function(req, res, next) {
+router.get('/view', function(req, res) {
   newslives.find({},function(err,allnews){
     if(err) {
       res.send(err);

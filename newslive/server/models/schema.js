@@ -2,11 +2,11 @@
 var mongoose = require('mongoose');
 var schema1 = mongoose.Schema;
 var saveheadlines = new schema1({
-	"Author" : String,
-	"Title" : String,
-	"Description" : String,
-	"Url" : String,
+	"author" : String,
+	"title" : String,
+	"description" : String,
+	"url" : String,
 	"urlToImage" : String,
-	"PublishedAt" : String
+	"publishedAt" : String
 })
 module.exports = mongoose.model('savenews',saveheadlines);
