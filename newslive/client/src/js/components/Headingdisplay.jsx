@@ -4,8 +4,11 @@ export default class Headingdisplay extends React.Component{
    {
      super();
      this.buttonHandler=this.buttonHandler.bind(this);
+     this.clickButton=this.clickButton.bind(this);
  }
+
  buttonHandler(){
+
    $.ajax({
     url: "http://localhost:8095/news/adddatatodb",
     type: "POST",
@@ -33,8 +36,9 @@ export default class Headingdisplay extends React.Component{
                  <h3>{this.props.data.author}</h3>
                  <h3>{this.props.data.publishedAt}</h3>
                    <form>
+
                    <button type="button" className="btn btn-success" onClick={this.buttonHandler.bind(this)}>Save</button>
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" className="btn btn-warning">Comment</button>
+
                    </form>
                    </div>
                </div>

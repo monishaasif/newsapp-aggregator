@@ -20,6 +20,7 @@
       newssave.url = req.body.url;
       newssave.urlToImage = req.body.urlToImage;
       newssave.publishedAt = req.body.publishedAt;
+      newssave.comment = req.body.comment;
 
     newssave.save(function(err){
       if(err) {

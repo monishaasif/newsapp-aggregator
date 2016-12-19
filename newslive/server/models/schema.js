@@ -7,6 +7,7 @@ var saveheadlines = new schema1({
 	"description" : String,
 	"url" : String,
 	"urlToImage" : String,
-	"publishedAt" : String
+	"publishedAt" : String,
+	"comment": String
 })
 module.exports = mongoose.model('savenews',saveheadlines);
