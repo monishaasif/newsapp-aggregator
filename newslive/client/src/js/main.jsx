@@ -24,9 +24,9 @@ return (
 }
 }
 ReactDOM.render(
-<Router history={browserHistory}>
+<Router history={hashHistory}>
              <Route path="/" component={Main} >
-             <Route path="/Home" component={Home}/>
+             <IndexRoute  component={Home}/>
 						 <Route path="/favNews" component={FavNewsComponent}/>
              <Route path="/About" component={About}/>
              <Route path="/Contact" component={Contact}/>

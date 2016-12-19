@@ -4,7 +4,7 @@ var NavBar = React.createClass({
   render: function(){
     return(
       <div>
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-inverse">
       <div className="container-fluid">
       <ul className="nav navbar-nav">
       <li><Link to="/Home">Home</Link></li>

@@ -56,8 +56,8 @@
      if(req.body)
      {
       request1=req.body.title;
-       request2=req.body.description;
-     newslives.update({title:request1},{$set:{description:request2}},function(err){
+       request2=req.body.comment;
+     newslives.update({title:request1},{$set:{comment:request2}},function(err){
 
          if(err) {
            res.send(err);
