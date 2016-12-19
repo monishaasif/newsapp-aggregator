@@ -4,7 +4,6 @@ export default class Headingdisplay extends React.Component{
    {
      super();
      this.buttonHandler=this.buttonHandler.bind(this);
-     this.clickButton=this.clickButton.bind(this);
  }
 
  buttonHandler(){

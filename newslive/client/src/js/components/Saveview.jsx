@@ -60,16 +60,35 @@ export default class SaveView extends React.Component{
                  <h3>{this.props.ele.author}</h3>
                  <h3>{this.props.ele.publishedAt}</h3>
                    <form>
-                   <button type="button" className="btn btn-info" onClick={this.buttonHandler.bind(this)}>DELETE</button>
+                   <div class="container">
+                   <button type="button" className="btn btn-danger btn-lg" data-target="#mymodal" onClick={this.buttonHandler.bind(this)}>DELETE</button>
                    &nbsp;&nbsp;&nbsp;&nbsp;
-                   <button type="button" className="btn btn-info" onClick={this.buttonUpdate.bind(this)}>UPDATE</button>
+                   <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#mymodal">UPDATE</button>
+                    <div className="modal fade in" id="myModal" role="dialog">
+  									<div className="modal-dialog">
+  										<div className="modal-content">
+  											<div className="modal-header">
+  												<button type="button" className="close" data-dismiss="modal">&times;</button>
 
+  												<h4 className="modal-title">Update Comment</h4>
+  											</div>
+  											<div className="modal-body">
+  											<div className="modal-footer">
+  												<button className="btn btn-success" data-dismiss="modal" type="button">Close</button> <button class="btn btn-primary" type="button">Submit</button>
+  											</div>
+  										</div>
+  									</div>
+  								</div>
+                     </div>
+                     </div>
                  </form>
-                   </div>
-               </div>
-             </div>
-             </div>
 
-         )
+                    </div>
+                     </div>
+                      </div>
+
+                       </div>
+
+    )
    }
 }
