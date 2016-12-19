@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var strategy = require('passport-local').Strategy;
+var connectflash = require('connect-flash');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -50,6 +53,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client/assets')));
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.connectflash());
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/news',news);
@@ -70,5 +77,28 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+passport.use(new LocalStrategy(
+function(username, password, done) {
+  User.findOne({ username: username }, function (err, user) {
+    if (err) { return done(err); }
+    if (!user) { return done(null, false); }
+    if (!user.verifyPassword(password)) { return done(null, false); }
+    return done(null, user);
+  });
+}
+));
+app.post('/login',
+passport.authenticate('local', { failureRedirect: '/login' }),
+function(req, res) {
+  res.redirect('/');
+});
+passport.serializeUser(function(user, done) {
+done(null, user.id);
+});
 
+passport.deserializeUser(function(id, done) {
+User.findById(id, function (err, user) {
+  done(err, user);
+});
+});
 module.exports = app;

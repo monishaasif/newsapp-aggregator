@@ -21,9 +21,11 @@ export default class SaveView extends React.Component{
       $.ajax({
        url:"http://localhost:8095/news/update",
        type: 'PUT',
-       data: obj,
+       data: 'title='+this.props.ele.title+'&comment='+this.state.comment,
+
        success: function(message)
        {
+         console.log(this.props.ele.title);
          console.log("comments updated");
                  console.log(obj.comment);
         // window.location.reload();
@@ -62,7 +64,6 @@ export default class SaveView extends React.Component{
                   <h3>{this.props.ele.description}</h3>
                  <h3>{this.props.ele.author}</h3>
                  <h3>{this.props.ele.publishedAt}</h3>
-
                    <button type="button" className="btn btn-danger btn-lg" value="delete"  onClick={this.buttonHandler.bind(this)}>DELETE</button>
                    &nbsp;&nbsp;&nbsp;&nbsp;
                    <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update</button>
