@@ -51,6 +51,8 @@ export default class SaveView extends React.Component{
 });
  }
    render(){
+     var myid="#" + this.props.ele._id;
+     var myid2=this.props.ele._id;
        return(
               <div class="Container-fluid">
                <div className="jumbotron row">
@@ -66,8 +68,8 @@ export default class SaveView extends React.Component{
                  <h3>{this.props.ele.publishedAt}</h3>
                    <button type="button" className="btn btn-danger btn-lg" value="delete"  onClick={this.buttonHandler.bind(this)}>DELETE</button>
                    &nbsp;&nbsp;&nbsp;&nbsp;
-                   <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update</button>
-                   <div id="myModal" className="modal fade in" role="dialog">
+                   <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target={myid}>Update</button>
+                   <div id={myid2} className="modal fade in" role="dialog">
                       <div className="modal-dialog">
                         <div className="modal-content">
                           <div className="modal-header">

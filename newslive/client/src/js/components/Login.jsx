@@ -9,20 +9,55 @@ export default class Login extends React.Component{
   }
   render(){
     return(
-    <div className="container">
-    <form className="form-signin">
-       <h2 className="form-signin-heading">Sign-in</h2>
-       <br></br><br></br>
-       <label for="text" className="sr-only">Username</label>
-       <input type="text" id="text" className="form-control" placeholder="Username" required autofocus />
-       <br></br><br></br>
-       <label for="inputPassword" className="sr-only">Password</label>
-       <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
-       <br></br><br></br>
-       <div className="checkbox">
-         </div>
-       <button className="btn btn-lg btn-success btn-block" type="submit" onChange={this.buttonLogin.bind(this)}>Login </button>
-     </form>
+      <div className="container">
+      <div className="row">
+        <div className="col-md-4 col-md-offset-4">
+          <div className="form-body">
+            <ul className="nav nav-tabs final-login">
+              <li className="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
+              <li><a data-toggle="tab" href="#sectionB">Join us!</a></li>
+            </ul><br /><br />
+            <div className="tab-content">
+            <div id="sectionA" className="tab-pane fade in active">
+            <div className="innter-form">
+              <form className="sa-innate-form" method="post">
+                <label>Email Address</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="username"/>
+                <br /> <br />
+                <label>Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;
+                <input type="password" name="password"/>
+                <br /><br />
+                <center><button className="btn btn-success" type="submit">Sign In</button></center>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+              </form>
+            </div>
+            <div className="clearfix"></div>
+            </div>
+            <div id="sectionB" className="tab-pane fade">
+            <div className="innter-form">
+              <form className="sa-innate-form" method="post">
+              <table>
+                <tr><td><label>Name</label></td>
+                <td><input type="text" name="username"/></td></tr>
+                <br /><br />
+              <tr><td>  <label>Email </label></td>
+                <td><input type="text" name="username"/></td></tr><br /><br />
+              <tr><td>  <label>Password</label></td>
+                <td><input type="password" name="password"/></td></tr>
+                <br /><br />
+
+                </table>
+                <center><button className="btn btn-success" type="submit" >Join now</button></center>
+              </form>
+            </div>
+          </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
 </div>
     )
   }
